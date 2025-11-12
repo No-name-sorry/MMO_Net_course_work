@@ -7,6 +7,7 @@ import universal.util.FunRand;
 
 import java.util.List;
 
+
 @Getter
 @Setter
 public class Element {
@@ -19,6 +20,7 @@ public class Element {
     private double tcurr;
     private int state;
     private Element nextElement;
+
     private int id;
 
     public Element() {
@@ -43,7 +45,7 @@ public class Element {
         nextElement = null;
         id = nextId;
         nextId++;
-        name = "element" + id;
+//        name = "element" + id;
     }
 
     public Element(String nameOfElement, double delay) {
@@ -56,7 +58,7 @@ public class Element {
         nextElement = null;
         id = nextId;
         nextId++;
-        name = "element" + id;
+//        name = "element" + id;
     }
 
     public static void resetIdCounter() {
@@ -80,7 +82,6 @@ public class Element {
                         int k = (int) getDelayDev();
                         delay = FunRand.Erlang(getDelayMean(), k);
                     } else {
-                        // distribution unknown
                         delay = getDelayMean();
                     }
                 }
@@ -102,6 +103,7 @@ public class Element {
     }
 
     public void inAct() { }
+    public void inAct(Detail d) { inAct(); }
 
     public void outAct() {
         quantity++;
@@ -117,5 +119,5 @@ public class Element {
                 " tnext= " + tnext);
     }
 
-    public void doStatistics(double delta) { }
+//    public void doStatistics(double delta) { }
 }
